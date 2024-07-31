@@ -21,3 +21,7 @@ header {
     width: 100%;
     
 }
+
+.divTable{
+	        display:table;
+}
