@@ -54,6 +54,7 @@ async function fetchSheetData(month) {
 function processSheetData(response) {
     const data = response.values;
     entries = [];
+	let a = " ";
 	let counter = 0;
     if (data && data.length > 0) {
         data.forEach(row => {
@@ -62,10 +63,14 @@ function processSheetData(response) {
                 const [Apartment_Number, Apartment_Area, Maintainence_Amount, Status, Owner, Recieved_date,Notes] = row;
 				//Apartment_Number	Apartment_Area	Maintainence_Amount	Status	Owner	Due date
                 entries.push({ Apartment_Number, Apartment_Area, Maintainence_Amount: parseFloat(Maintainence_Amount), Status, Owner, Recieved_date,Notes });
+            }else if (row.length === 3) {
+                const [Apartment_Number, Apartment_Area, Maintainence_Amount, Status, Owner, Recieved_date,Notes] = row;
+				//Apartment_Number	Apartment_Area	Maintainence_Amount	Status	Owner	Due date
+                entries.push({ Apartment_Area, Apartment_Area, Maintainence_Amount: parseFloat(Maintainence_Amount), Apartment_Area, Apartment_Area, Apartment_Area, Apartment_Number});
             }
         });
         updateEntryList();
-        updateSummary();
+        //updateSummary();
     }
 }
 
@@ -75,16 +80,19 @@ function updateEntryList() {
     entries.forEach(entry => {
         const tr = document.createElement('tr');
 						//Apartment_Number	Apartment_Area	Maintainence_Amount	Status	Owner	Due date
-
-        tr.innerHTML = `
-            <td>${entry.Apartment_Number}</td>
-            <td>${entry.Apartment_Area}</td>
+        if(typeof(entry.Notes)!= "undefined"){
+		tr.innerHTML = `
+            <td>${entry.Apartment_Number} (${entry.Apartment_Area}sqft)</td>
             <td>${entry.Maintainence_Amount.toFixed(2)}</td>
             <td>${entry.Status}</td>
             <td>${entry.Owner}</td>
             <td>${entry.Recieved_date}</td>
             <td>${entry.Notes}</td>
-        `;
+        `;}else{
+			tr.innerHTML = `
+			<td><b>${entry.Apartment_Number}</b></td>
+            <td>${entry.Maintainence_Amount.toFixed(2)}</td>
+		`;}
         tbody.appendChild(tr);
     });
 }
