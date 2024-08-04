@@ -1,41 +1,29 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa;
     color: #343a40;
 }
 
-.container {
-    padding: 10px;
+.header {
+    background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.header {
-    background-color: #343a40;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
+.header h1 {
+    font-weight: 700;
 }
 
 .main {
     margin-top: 20px;
 }
 
-.form-section, .month-select, .table {
+.month-select {
     margin-bottom: 20px;
-}
-
-.form-section h2, .month-select label {
-    margin-bottom: 10px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
 }
 
 .table {
@@ -55,14 +43,17 @@ body {
 
 .status-received {
     background-color: #11734b;
+    color: white;
 }
 
 .status-pending {
     background-color: #fff48e;
+    color: black;
 }
 
 .status-overdue {
     background-color: #ff917d;
+    color: white;
 }
 
 @media (min-width: 768px) {

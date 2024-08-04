@@ -31,8 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     const receivedDate = row[5] || '';
                     const notes = row[6] || '';
 
+                    let apartmentInfo = apartmentNumber;
+                    if (apartmentArea) {
+                        apartmentInfo += ` (${apartmentArea}sqft)`;
+                    }
+
                     tr.innerHTML = `
-                        <td>${apartmentNumber}  ${apartmentArea}</td>
+                        <td>${apartmentInfo}</td>
                         <td>${maintenanceAmount}</td>
                         <td class="${status.toLowerCase()}">${status}</td>
                         <td>${owner}</td>
