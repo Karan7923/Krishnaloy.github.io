@@ -22,20 +22,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (index === 0) return; // Skip header row
                     const tr = document.createElement('tr');
 
+                    // Safely access each row element and provide a fallback value if it's undefined or null
+                    const apartmentNumber = row[0] || '';
+                    const apartmentArea = row[1] || '';
+                    const maintenanceAmount = row[2] ? parseFloat(row[2]).toFixed(2) : '';
+                    const status = row[3] || '';
+                    const owner = row[4] || '';
+                    const receivedDate = row[5] || '';
+                    const notes = row[6] || '';
+
                     tr.innerHTML = `
-                        <td>${row[0]} (${row[1]}sqft)</td>
-                        <td>${parseFloat(row[2]).toFixed(2)}</td>
-                        <td class="${row[3].toLowerCase()}">${row[3]}</td>
-                        <td>${row[4]}</td>
-                        <td>${row[5]}</td>
-                        <td>${row[6]}</td>
+                        <td>${apartmentNumber}  ${apartmentArea}</td>
+                        <td>${maintenanceAmount}</td>
+                        <td class="${status.toLowerCase()}">${status}</td>
+                        <td>${owner}</td>
+                        <td>${receivedDate}</td>
+                        <td>${notes}</td>
                     `;
 
-                    if (row[3] === 'Received') {
+                    if (status === 'Received') {
                         tr.children[2].classList.add('status-received');
-                    } else if (row[3] === 'Pending') {
+                    } else if (status === 'Pending') {
                         tr.children[2].classList.add('status-pending');
-                    } else if (row[3] === 'Overdue') {
+                    } else if (status === 'Overdue') {
                         tr.children[2].classList.add('status-overdue');
                     }
 
