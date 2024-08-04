@@ -3,6 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa;
     color: #343a40;
+    text-align: center; /* Center align text globally */
 }
 
 .header {
@@ -11,7 +12,6 @@ body {
     background-position: center;
     color: #ffffff;
     padding: 40px 20px;
-    text-align: center;
 }
 
 .header h1 {
@@ -24,6 +24,20 @@ body {
 
 .month-select {
     margin-bottom: 20px;
+    text-align: center; /* Center align dropdown text */
+}
+
+.month-select label {
+    display: block;
+}
+
+.month-select select {
+    display: inline-block;
+    text-align: center;
+    text-align-last: center; /* Center align selected option */
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .table {
@@ -34,6 +48,7 @@ body {
 .table th, .table td {
     padding: 10px;
     border: 1px solid #dee2e6;
+    text-align: center; /* Center align table text */
 }
 
 .table th {
